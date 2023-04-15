@@ -1,0 +1,131 @@
+{% extends "main.html" %}
+
+{% block content%}
+
+<body style="background-color:#33475b;">
+
+<h2 style="color:white; font-family:verdana;">You Submitted: </h2>
+
+<style>
+table, th, td {
+    border:1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    background-color: lightgray;
+    font-family:verdana;
+  }
+
+  .button {
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		cursor: pointer;
+		font-family:verdana;
+
+  }
+	</style>
+
+	<table style="width:100%">
+
+  	<tr>
+    	<td>Bottle Beer</td>
+    	<td>{{bottle_beer}}</td>
+  	</tr>
+  	<tr>
+    	<td>Draft Beer</td>
+    	<td>{{draft_beer}}</td>
+  	</tr>
+  	<tr>
+    	<td>Food</td>
+    	<td>{{food}}</td>
+  	</tr>
+  	<tr>
+    	<td>Liquor</td>
+    	<td>{{liquor}}</td>
+  	</tr>
+  	<tr>
+    	<td>NA Beverage</td>
+    	<td>{{na_bev}}</td>
+  	</tr>
+  	<tr>
+    	<td>Wine BTG</td>
+    	<td>{{wine}}</td>
+  	</tr>
+  	<tr>
+    	<td>Wine BTB</td>
+    	<td>{{wine_bottle}}</td>
+  	</tr>
+  	<tr>
+    	<td>Total Tips & Fees</td>
+    	<td>{{card_tips}}</td>
+  	</tr>
+  	<tr>
+    	<td>Cash Tips</td>
+    	<td>{{cash_tips}}</td>
+  	</tr>
+	</table>
+
+	<br/>
+
+<h2 style="color:white; font-family:verdana;"> Tip Calculator Results </h2>
+
+{% if calculation_success == True %}
+	<p style="color:white; font-family:verdana;"> Food sales were {{total_food_sales}} and bar sales with wine bottles removed were {{total_bar_sales}}. Total sales were {{overall_sales}}.</p>
+
+	<p style="color:white; font-family:verdana;"> In a non-service charge model, you could expect overall sales of {{overall_sales}} to bring in {{expected_tip_amount}}. Considering our service charge model, your declared tips of <b>{{total_tips}}</b> is <b>{{tips_taken_ratio}}</b> of that amount.</p>
+
+	<p style="color:white; font-family:verdana;"> Using {{food_tip_rate}} of food sales for food runners, {{bar_tip_rate}} of bar sales for bartenders and {{overall_tip_rate}} of overall sales for wait assists and adjusting for the percentage difference, the following tip outs are calculated: </p>
+
+<style>
+table, th, td {
+    border:1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    background-color: lightgray;
+    font-family:verdana;
+  }
+	</style>
+
+	<table style="width:100%">
+  	<tr>
+    	<th>Food Runner Tip Out</th>
+    	<th>Bar Tip Out</th>
+    	<th>Wait Assist Tip Out</th>
+    	<th>Host Tip Out</th>
+  	</tr>
+  	<tr>
+    	<td>{{final_tip_out_food}}</td>
+    	<td>{{final_tip_out_bar}}</td>
+    	<td>{{final_tip_out_overall}}</td>
+    	<td>{{final_tip_out_host}}</td>
+  	</tr>
+	</table>
+	<br/>
+	<br/>
+	<table style="width:100%">
+  	<tr>
+    	<th>Total Tip Out</th>
+    	<th>Total Walking With</th>
+ 	 </tr>
+  	<tr>
+    	<td>{{total_tip_out}}</td>
+    	<td>{{walking_with}}</td>
+  	</tr>
+	</table>
+{% endif %}
+
+{% if calculation_success == False %}
+    <p style="color:white; font-family:verdana;">{{error}}</p>
+{% endif %}
+
+<br/>
+
+<a href="/" class="button">Start Over</a>
+
+</body>
+
+{% endblock %}

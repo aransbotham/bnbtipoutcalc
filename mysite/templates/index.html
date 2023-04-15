@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+
+{% block content%}
+
+<body style="background-color:#33475b;">
+
+<h2 style="color:white; font-family:verdana;">Input Values Below </h2>
+
+<form method="post" action="{{ url_for('operation_result') }}" id="calculator_form">
+	<label for="Bottle Beer Sales" style="color:white; font-family:verdana;">Bottle Beer:</label>
+	<input type="float" inputmode="decimal" name="Input0" id="input0" value="0">
+	<br/>
+	<label for="Draft Beer Sales" style="color:white; font-family:verdana;">Draft Beer:</label>
+	<input type="float" inputmode="decimal" name="Input1" id="input1" value="0">
+	<br/>
+	<label for="Food Sales" style="color:white; font-family:verdana;">Food:</label>
+	<input type="float" inputmode="decimal" name="Input2" id="input2" value="0">
+	<br/>
+	<label for="Liquor Sales" style="color:white; font-family:verdana;">Liquor:</label>
+	<input type="float" inputmode="decimal" name="Input3" id="input3" value="0">
+	<br/>
+	<label for="NA Beverage Sales" style="color:white; font-family:verdana;">NA Beverage:</label>
+	<input type="float" inputmode="decimal" name="Input4" id="input4" value="0">
+	<br/>
+	<label for="Wine BTG" style="color:white; font-family:verdana;">Wine BTG:</label>
+	<input type="float" inputmode="decimal" name="Input5" id="input5" value="0">
+	<br/>
+	<label for="Wine BTB" style="color:white; font-family:verdana;">Wine BTB:</label>
+	<input type="float" inputmode="decimal" name="Input6" id="input6" value="0">
+	<br/>
+	<label for="Total Tips & Fees" style="color:white; font-family:verdana;">Total Tips & Fees:</label>
+	<input type="float" inputmode="decimal" name="Input7" id="input7" value="0">
+	<br/>
+	<label for="Cash Tips" style="color:white; font-family:verdana;">Cash Tips:</label>
+	<input type="float" inputmode="decimal" name="Input8" id="input8" value="0">
+	<br/>
+	<br/>
+	<input type="submit" value="Submit" style="color: black;"/>
+	<input type="reset" value="RESET" style="color: red;"/>
+</form>
+
+</body>
+
+{% endblock %}
